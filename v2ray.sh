@@ -194,12 +194,12 @@ updateProject() {
     [[ ${INSTALL_WAY} == 0 ]] && bash <(curl -L -s https://multi.netlify.app/go.sh)
 }
 
-#时间同步
+#Time Syncronization
 timeSync() {
     if [[ ${INSTALL_WAY} == 0 ]];then
         echo -e "${Info} Time Synchronizing.. ${Font}"
         if [[ `command -v ntpdate` ]];then
-            ntpdate pool.ntp.org
+            ntpdate lk.pool.ntp.org
         elif [[ `command -v chronyc` ]];then
             chronyc -a makestep
         fi
