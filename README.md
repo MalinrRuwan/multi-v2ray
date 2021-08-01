@@ -48,12 +48,12 @@ sudo apt update && apt upgrade -y && git clone https://github.com/MalinrRuwan/mu
 
 keep profile to update
 ```
-git clone https://github.com/MalinrRuwan/multi-v2ray.git && cd multi-v2ray && bash v2ray.sh -k
+sudo git clone https://github.com/MalinrRuwan/multi-v2ray.git && cd multi-v2ray && bash v2ray.sh -k
 ```
 
 uninstall
 ```
-git clone https://github.com/MalinrRuwan/multi-v2ray.git && cd multi-v2ray && bash v2ray.sh --remove
+sudo git clone https://github.com/MalinrRuwan/multi-v2ray.git && cd multi-v2ray && bash v2ray.sh --remove
 ```
 
 ## Command Line
