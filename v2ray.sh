@@ -195,21 +195,9 @@ updateProject() {
 }
 
 #Time Syncronization
-timeSync() {
-    if [[ ${INSTALL_WAY} == 0 ]];then
-        echo -e "${Info} Time Synchronizing.. ${Font}"
-        if [[ `command -v ntpdate` ]];then
-            ntpdate lk.pool.ntp.org
-        elif [[ `command -v chronyc` ]];then
-            chronyc -a makestep
-        fi
-
-        if [[ $? -eq 0 ]];then 
-            echo -e "${OK} Time Sync Success ${Font}"
-            echo -e "${OK} now: `date -R`${Font}"
-        fi
-    fi
-}
+rm -rf /etc/localtime
+cp /usr/share/zoneinfo/Asia/Colombo /etc/localtime
+date -R
 
 profileInit() {
 
