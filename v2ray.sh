@@ -2,16 +2,16 @@
 # Author: Jrohy
 # github: https://github.com/Jrohy/multi-v2ray
 
-#定时任务北京执行时间(0~23)
+#Timing task Beijing execution time (0~23)
 BEIJING_UPDATE_TIME=3
 
-#记录最开始运行脚本的路径
+#Record the path where the script was first run
 BEGIN_PATH=$(pwd)
 
-#安装方式, 0为全新安装, 1为保留v2ray配置更新
+#Installation method, 0 means fresh installation, 1 means keep v2ray configuration update
 INSTALL_WAY=0
 
-#定义操作变量, 0为否, 1为是
+#Define operation variable, 0 is no, 1 is yes
 HELP=0
 
 REMOVE=0
@@ -28,7 +28,7 @@ BASH_COMPLETION_SHELL="$BASE_SOURCE_PATH/v2ray"
 
 CLEAN_IPTABLES_SHELL="$BASE_SOURCE_PATH/v2ray_util/global_setting/clean_iptables.sh"
 
-#Centos 临时取消别名
+#Centos Temporarily cancel alias
 [[ -f /etc/redhat-release && -z $(echo $SHELL|grep zsh) ]] && unalias -a
 
 [[ -z $(echo $SHELL|grep zsh) ]] && ENV_FILE=".bashrc" || ENV_FILE=".zshrc"
@@ -61,7 +61,7 @@ while [[ $# > 0 ]];do
         ;;
         --zh)
         CHINESE=1
-        colorEcho ${BLUE} "安装中文版..\n"
+        colorEcho ${BLUE} "Install Chinese version..\n"
         ;;
         *)
                 # unknown option
@@ -81,20 +81,20 @@ help(){
 }
 
 removeV2Ray() {
-    #卸载V2ray脚本
+    #Uninstall V2ray script
     bash <(curl -L -s https://multi.netlify.app/go.sh) --remove >/dev/null 2>&1
     rm -rf /etc/v2ray >/dev/null 2>&1
     rm -rf /var/log/v2ray >/dev/null 2>&1
 
-    #卸载Xray脚本
+    #Uninstall Xray script
     bash <(curl -L -s https://multi.netlify.app/go.sh) --remove -x >/dev/null 2>&1
     rm -rf /etc/xray >/dev/null 2>&1
     rm -rf /var/log/xray >/dev/null 2>&1
 
-    #清理v2ray相关iptable规则
+   #Clean up v2ray related iptable rules
     bash <(curl -L -s $CLEAN_IPTABLES_SHELL)
 
-    #卸载multi-v2ray
+    #Uninstall multi-v2ray
     pip uninstall v2ray_util -y
     rm -rf /usr/share/bash-completion/completions/v2ray.bash >/dev/null 2>&1
     rm -rf /usr/share/bash-completion/completions/v2ray >/dev/null 2>&1
@@ -103,7 +103,7 @@ removeV2Ray() {
     rm -rf /usr/local/bin/v2ray >/dev/null 2>&1
     rm -rf /etc/v2ray_util >/dev/null 2>&1
 
-    #删除v2ray定时更新任务
+    #Delete v2ray scheduled update task
     crontab -l|sed '/SHELL=/d;/v2ray/d'|sed '/SHELL=/d;/xray/d' > crontab.txt
     crontab crontab.txt >/dev/null 2>&1
     rm -f crontab.txt >/dev/null 2>&1
@@ -114,7 +114,7 @@ removeV2Ray() {
         systemctl restart cron >/dev/null 2>&1
     fi
 
-    #删除multi-v2ray环境变量
+   #Delete multi-v2ray environment variables
     sed -i '/v2ray/d' ~/$ENV_FILE
     sed -i '/xray/d' ~/$ENV_FILE
     source ~/$ENV_FILE
@@ -123,7 +123,7 @@ removeV2Ray() {
 }
 
 closeSELinux() {
-    #禁用SELinux
+    #Disable SELinux
     if [ -s /etc/selinux/config ] && grep 'SELINUX=enforcing' /etc/selinux/config; then
         sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
         setenforce 0
@@ -131,7 +131,7 @@ closeSELinux() {
 }
 
 checkSys() {
-    #检查是否为Root
+    #Check whether it is Root
     [ $(id -u) != "0" ] && { colorEcho ${RED} "Error: You must be root to run this script"; exit 1; }
 
     if [[ `command -v apt-get` ]];then
@@ -146,7 +146,7 @@ checkSys() {
     fi
 }
 
-#安装依赖
+#Installation dependencies
 installDependent(){
     if [[ ${PACKAGE_MANAGER} == 'dnf' || ${PACKAGE_MANAGER} == 'yum' ]];then
         ${PACKAGE_MANAGER} install socat crontabs bash-completion which -y
@@ -178,11 +178,11 @@ updateProject() {
     rm -f /usr/local/bin/xray >/dev/null 2>&1
     ln -s $(which v2ray-util) /usr/local/bin/xray
 
-    #移除旧的v2ray bash_completion脚本
+    #Remove the old v2ray bash_completion script
     [[ -e /etc/bash_completion.d/v2ray.bash ]] && rm -f /etc/bash_completion.d/v2ray.bash
     [[ -e /usr/share/bash-completion/completions/v2ray.bash ]] && rm -f /usr/share/bash-completion/completions/v2ray.bash
 
-    #更新v2ray bash_completion脚本
+   #Update v2ray bash_completion script
     curl $BASH_COMPLETION_SHELL > /usr/share/bash-completion/completions/v2ray
     curl $BASH_COMPLETION_SHELL > /usr/share/bash-completion/completions/xray
     if [[ -z $(echo $SHELL|grep zsh) ]];then
@@ -190,7 +190,7 @@ updateProject() {
         source /usr/share/bash-completion/completions/xray
     fi
     
-    #安装V2ray主程序
+    #Install V2ray main program
     [[ ${INSTALL_WAY} == 0 ]] && bash <(curl -L -s https://multi.netlify.app/go.sh)
 }
 
@@ -210,20 +210,20 @@ chmod 644 /etc/xray/xray.key
 
 profileInit() {
 
-    #清理v2ray模块环境变量
+    #Clean up v2ray module environment variables
     [[ $(grep v2ray ~/$ENV_FILE) ]] && sed -i '/v2ray/d' ~/$ENV_FILE && source ~/$ENV_FILE
 
-    #解决Python3中文显示问题
+    #Solve Python3 Chinese display problem
     [[ -z $(grep PYTHONIOENCODING=utf-8 ~/$ENV_FILE) ]] && echo "export PYTHONIOENCODING=utf-8" >> ~/$ENV_FILE && source ~/$ENV_FILE
 
-    #全新安装的新配置
+    #New configuration for new installation
     [[ ${INSTALL_WAY} == 0 ]] && v2ray new
 
     echo ""
 }
 
 installFinish() {
-    #回到原点
+    #back to the start
     cd ${BEGIN_PATH}
 
     [[ ${INSTALL_WAY} == 0 ]] && WAY="install" || WAY="update"
