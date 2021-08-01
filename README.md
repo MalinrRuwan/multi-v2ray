@@ -6,7 +6,7 @@ a tool to manage v2ray/xray config json, support multiple user && group manage
 ![](https://img.shields.io/docker/pulls/jrohy/v2ray.svg)
 ![](https://img.shields.io/github/license/Jrohy/multi-v2ray.svg)
 
-## [中文](README.md)  [English](README_EN.md)
+## README_EN.md
 
 ## Feature
 - Support Xray manage, different commands (v2ray/xray) enter different core management
