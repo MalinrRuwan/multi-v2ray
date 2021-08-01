@@ -199,6 +199,15 @@ rm -rf /etc/localtime
 cp /usr/share/zoneinfo/Asia/Colombo /etc/localtime
 date -R
 
+#generate certificate
+openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 \
+    -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com" \
+    -keyout xray.key  -out xray.crt
+mkdir /etc/xray
+cp xray.key /etc/xray/xray.key
+cp xray.crt /etc/xray/xray.crt
+chmod 644 /etc/xray/xray.key
+
 profileInit() {
 
     #清理v2ray模块环境变量
