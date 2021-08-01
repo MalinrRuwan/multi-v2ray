@@ -6,8 +6,6 @@ a tool to manage v2ray/xray config json, support multiple user && group manage
 ![](https://img.shields.io/docker/pulls/jrohy/v2ray.svg)
 ![](https://img.shields.io/github/license/Jrohy/multi-v2ray.svg)
 
-## README_EN.md
-
 ## Feature
 - Support Xray manage, different commands (v2ray/xray) enter different core management
 - V2ray && Iptables Traffic Statistics
@@ -45,17 +43,17 @@ a tool to manage v2ray/xray config json, support multiple user && group manage
 ## How To Use
 new install
 ```
-source <(curl -sL https://multi.netlify.app/v2ray.sh)
+sudo apt update && apt upgrade -y && git clone https://github.com/MalinrRuwan/multi-v2ray.git && cd multi-v2ray && bash v2ray.sh
 ```
 
 keep profile to update
 ```
-source <(curl -sL https://multi.netlify.app/v2ray.sh) -k
+git clone https://github.com/MalinrRuwan/multi-v2ray.git && cd multi-v2ray && bash v2ray.sh -k
 ```
 
 uninstall
 ```
-source <(curl -sL https://multi.netlify.app/v2ray.sh) --remove
+git clone https://github.com/MalinrRuwan/multi-v2ray.git && cd multi-v2ray && bash v2ray.sh --remove
 ```
 
 ## Command Line
