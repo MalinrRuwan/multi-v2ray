@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This file is accessible as https://multi.netlify.app/go.sh
+# This file is accessible as https://raw.githubusercontent.com/MalinrRuwan/multi-v2ray/master/go.sh
 
 # If not specify, default meaning of return value:
 # 0: Success

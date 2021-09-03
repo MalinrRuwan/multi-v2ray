@@ -18,7 +18,7 @@ REMOVE=0
 
 CHINESE=0
 
-BASE_SOURCE_PATH="https://multi.netlify.app"
+BASE_SOURCE_PATH="https://raw.githubusercontent.com/MalinrRuwan/multi-v2ray/master"
 
 UTIL_PATH="/etc/v2ray_util/util.cfg"
 
@@ -82,12 +82,12 @@ help(){
 
 removeV2Ray() {
     #Uninstall V2ray script
-    bash <(curl -L -s https://multi.netlify.app/go.sh) --remove >/dev/null 2>&1
+    bash <(curl -L -s https://raw.githubusercontent.com/malinrruwan/multi-v2ray/master/go.sh) --remove >/dev/null 2>&1
     rm -rf /etc/v2ray >/dev/null 2>&1
     rm -rf /var/log/v2ray >/dev/null 2>&1
 
     #Uninstall Xray script
-    bash <(curl -L -s https://multi.netlify.app/go.sh) --remove -x >/dev/null 2>&1
+    bash <(curl -L -s https://raw.githubusercontent.com/malinrruwan/multi-v2ray/master/go.sh) --remove -x >/dev/null 2>&1
     rm -rf /etc/xray >/dev/null 2>&1
     rm -rf /var/log/xray >/dev/null 2>&1
 
@@ -191,7 +191,7 @@ updateProject() {
     fi
     
     #Install V2ray main program
-    [[ ${INSTALL_WAY} == 0 ]] && bash <(curl -L -s https://multi.netlify.app/go.sh)
+    [[ ${INSTALL_WAY} == 0 ]] && bash <(curl -L -s https://raw.githubusercontent.com/malinrruwan/multi-v2ray/master/go.sh)
 }
 
 #Time Syncronization
