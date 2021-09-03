@@ -1,8 +1,8 @@
-FROM centos:latest as builder
+FROM --platform=$TARGETPLATFORM centos:7 as builder
 
 RUN curl -L -s https://multi.netlify.app/go.sh -o go.sh && bash go.sh -x
 
-FROM alpine:latest
+FROM --platform=$TARGETPLATFORM alpine:latest
 
 LABEL maintainer "Jrohy <euvkzx@Jrohy.com>"
 
