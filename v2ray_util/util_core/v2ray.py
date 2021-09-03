@@ -87,13 +87,13 @@ class V2ray:
         if is_ipv6(get_ip()):
             print(ColorStr.yellow(_("ipv6 network not support update {soft} online, please manual donwload {soft} to update!".format(soft=run_type))))
             if run_type == "xray":
-                print(ColorStr.fuchsia(_("download Xray-linux-xx.zip and run 'bash <(curl -L -s https://multi.netlify.app/go.sh) -l Xray-linux-xx.zip -x' to update")))
+                print(ColorStr.fuchsia(_("download Xray-linux-xx.zip and run 'bash <(curl -L -s https://raw.githubusercontent.com/malinrruwan/multi-v2ray/master/go.sh) -l Xray-linux-xx.zip -x' to update")))
             else:
-                print(ColorStr.fuchsia(_("download v2ray-linux-xx.zip and run 'bash <(curl -L -s https://multi.netlify.app/go.sh) -l v2ray-linux-xx.zip' to update")))
+                print(ColorStr.fuchsia(_("download v2ray-linux-xx.zip and run 'bash <(curl -L -s https://raw.githubusercontent.com/malinrruwan/multi-v2ray/master/go.sh) -l v2ray-linux-xx.zip' to update")))
             sys.exit(0)
         if os.path.exists("/.dockerenv"):
             V2ray.stop()
-        subprocess.Popen("curl -Ls https://multi.netlify.app/go.sh -o temp.sh", shell=True).wait()
+        subprocess.Popen("curl -Ls https://raw.githubusercontent.com/malinrruwan/multi-v2ray/master/go.sh -o temp.sh", shell=True).wait()
         subprocess.Popen("bash temp.sh {} {} && rm -f temp.sh".format("-x" if run_type == "xray" else "", "--version {}".format(version) if version else ""), shell=True).wait()
         if os.path.exists("/.dockerenv"):
             V2ray.start()
