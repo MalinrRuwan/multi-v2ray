@@ -20,7 +20,7 @@ class TLSModifier:
     def turn_on(self, need_restart=True):
         print("")
         print(_("1. Let's Encrypt certificate(auto create, please prepare domain)"))
-        print(_("2. Customize certificate(prepare certificate file paths)"))
+        print(_("2. No Domain (Fake Certificate, prepare your vps ip)"))
         print("")
         choice = readchar(_("please select: "))
         input_domain = self.domain
@@ -48,15 +48,15 @@ class TLSModifier:
             self.writer.write_tls(True, crt_file=crt_file, key_file=key_file, domain=input_domain, alpn=self.alpn, xtls=self.xtls)
 
         elif choice == "2":
-            crt_file = input(_("please input certificate cert file path: "))
-            key_file = input(_("please input certificate key file path: "))
+            crt_file = "/etc/xray/xray.crt"
+            key_file = "/etc/xray/xray.key"
             if not os.path.exists(crt_file) or not os.path.exists(key_file):
                 print(_("certificate cert or key not exist!"))
                 return
             if not input_domain:
-                input_domain = input(_("please input the certificate cert file domain: "))
+                input_domain = input(_("please input your vps IP: "))
                 if not input_domain:
-                    print(_("domain is null!"))
+                    print(_("IP address is null!"))
                     return
             self.writer.write_tls(True, crt_file=crt_file, key_file=key_file, domain=input_domain, alpn=self.alpn, xtls=self.xtls)
         else:
