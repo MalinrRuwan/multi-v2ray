@@ -620,7 +620,7 @@ msgstr "自动切换到443端口..."
 msgid "1. Let's Encrypt certificate(auto create, please prepare domain)"
 msgstr "1. Let’s Encrypt 生成证书(准备域名)"
 
-msgid "2. Customize certificate(prepare certificate file paths)"
+msgid "2. No Domain (Fake Certificate, prepare your vps ip)"
 msgstr "2. 自定义已存在的其他路径的证书(准备证书文件路径)"
 
 msgid "local vps ip address: "
@@ -647,10 +647,10 @@ msgstr "请输入证书key文件路径: "
 msgid "certificate cert or key not exist!"
 msgstr "证书crt文件或者key文件指定路径不存在!"
 
-msgid "please input the certificate cert file domain: "
+msgid "please input your vps IP: "
 msgstr "请输入证书的域名: "
 
-msgid "domain is null!"
+msgid "IP address is null!"
 msgstr "证书域名为空!"
 
 msgid "group tls status"
