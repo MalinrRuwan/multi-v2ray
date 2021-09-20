@@ -1,5 +1,5 @@
 #!/bin/bash
-# Author: Jrohy
+# Author: MalinrRuwan
 # github: https://github.com/MalinrRuwan/multi-v2ray
 
 #Timing task Beijing execution time (0~23)

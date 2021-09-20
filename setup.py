@@ -14,7 +14,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     keywords='python v2ray multi-v2ray vmess socks5 vless trojan xray xtls',
-    author='Jrohy',
+    author='MalinrRuwan',
     author_email='euvkzx@gmail.com',
     url='https://github.com/MalinrRuwan/multi-v2ray',
     license='GPL',

@@ -5,7 +5,7 @@ import base64
 from urllib.parse import quote
 from .utils import ColorStr
 
-__author__ = 'Jrohy'
+__author__ = 'MalinrRuwan'
 
 class Dyport:
     def __init__(self, status=False, aid=0):

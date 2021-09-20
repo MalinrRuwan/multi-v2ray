@@ -4,13 +4,13 @@ RUN curl -L -s https://raw.githubusercontent.com/malinrruwan/multi-v2ray/master/
 
 FROM --platform=$TARGETPLATFORM alpine:latest
 
-LABEL maintainer "Jrohy <euvkzx@Jrohy.com>"
+LABEL maintainer "MalinrRuwan <euvkzx@MalinrRuwan.com>"
 
 ENV COMPLETION_FILE "/usr/share/bash-completion/completions/v2ray"
 
 ENV SOURCE_COMPLETION_FILE "https://raw.githubusercontent.com/malinrruwan/multi-v2ray/master/v2ray"
 
-ENV VERSION_LIST "https://api.github.com/repos/Jrohy/multi-v2ray/tags"
+ENV VERSION_LIST "https://api.github.com/repos/MalinrRuwan/multi-v2ray/tags"
 
 COPY --from=builder /usr/bin/xray/xray /usr/bin/xray/
 COPY --from=builder /usr/bin/xray/geoip.dat /usr/bin/xray/

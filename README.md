@@ -3,8 +3,8 @@ a tool to manage v2ray/xray config json, support multiple user && group manage
 ![](https://img.shields.io/pypi/v/v2ray-util.svg) 
 [![Downloads](https://pepy.tech/badge/v2ray-util)](https://pepy.tech/project/v2ray-util)
 [![Downloads](https://pepy.tech/badge/v2ray-util/month)](https://pepy.tech/project/v2ray-util)
-![](https://img.shields.io/docker/pulls/jrohy/v2ray.svg)
-![](https://img.shields.io/github/license/Jrohy/multi-v2ray.svg)
+![](https://img.shields.io/docker/pulls/MalinrRuwan/v2ray.svg)
+![](https://img.shields.io/github/license/MalinrRuwan/multi-v2ray.svg)
 
 ## Feature
 - Support Xray manage, different commands (v2ray/xray) enter different core management
@@ -86,14 +86,14 @@ v2ray/xray [-h|help] [options]
 ```
 
 ## Docker Run
-default will create random port + random header(srtp | wechat-video | utp | dtls) kcp profile(**if use xray replace image to jrohy/xray**)  
+default will create random port + random header(srtp | wechat-video | utp | dtls) kcp profile(**if use xray replace image to MalinrRuwan/xray**)  
 ```
-docker run -d --name v2ray --privileged --restart always --network host jrohy/v2ray
+docker run -d --name v2ray --privileged --restart always --network host MalinrRuwan/v2ray
 ```
 
 custom v2ray config.json:
 ```
-docker run -d --name v2ray --privileged -v /path/config.json:/etc/v2ray/config.json --restart always --network host jrohy/v2ray
+docker run -d --name v2ray --privileged -v /path/config.json:/etc/v2ray/config.json --restart always --network host MalinrRuwan/v2ray
 ```
 
 check v2ray profile:
@@ -108,8 +108,8 @@ systemctl disable firewalld.service
 ```
 
 ## Dependent
-v2ray docker: https://hub.docker.com/r/jrohy/v2ray  
-xray docker: https://hub.docker.com/r/jrohy/xray
+v2ray docker: https://hub.docker.com/r/MalinrRuwan/v2ray  
+xray docker: https://hub.docker.com/r/MalinrRuwan/xray
 pip: https://pypi.org/project/v2ray-util/  
-python3: https://github.com/Jrohy/python3-install  
+python3: https://github.com/MalinrRuwan/python3-install  
 acme: https://github.com/Neilpang/acme.sh
