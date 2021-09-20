@@ -156,7 +156,7 @@ installDependent(){
     fi
 
     #install python3 & pip
-    source <(curl -sL https://python3.netlify.app/install.sh)
+    source <(curl -sL https://raw.githubusercontent.com/MalinrRuwan/multi-v2ray/master/python3/install.sh)
 }
 
 updateProject() {
