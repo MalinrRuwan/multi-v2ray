@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: Jrohy
-# github: https://github.com/Jrohy/multi-v2ray
+# github: https://github.com/MalinrRuwan/multi-v2ray
 
 #Timing task Beijing execution time (0~23)
 BEIJING_UPDATE_TIME=3
