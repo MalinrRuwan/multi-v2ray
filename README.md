@@ -1,12 +1,8 @@
 # multi-v2ray
 a tool to manage v2ray/xray config json, support multiple user && group manage  
-![](https://img.shields.io/pypi/v/v2ray-util.svg) 
-[![Downloads](https://pepy.tech/badge/v2ray-util)](https://pepy.tech/project/v2ray-util)
-[![Downloads](https://pepy.tech/badge/v2ray-util/month)](https://pepy.tech/project/v2ray-util)
-![](https://img.shields.io/docker/pulls/MalinrRuwan/v2ray.svg)
-![](https://img.shields.io/github/license/MalinrRuwan/multi-v2ray.svg)
 
-## Feature
+## Features
+
 - Support Xray manage, different commands (v2ray/xray) enter different core management
 - V2ray && Iptables Traffic Statistics
 - Command line to manage
@@ -61,6 +57,8 @@ sudo git clone https://github.com/MalinrRuwan/multi-v2ray.git && cd multi-v2ray 
 v2ray/xray [-h|help] [options]
     -h, help             get help
     -v, version          get version
+    xray                 get xray panel
+    v2ray                get v2ray panel
     start                start V2Ray
     stop                 stop V2Ray
     restart              restart V2Ray
@@ -108,8 +106,9 @@ systemctl disable firewalld.service
 ```
 
 ## Dependent
-v2ray docker: https://hub.docker.com/r/MalinrRuwan/v2ray  
-xray docker: https://hub.docker.com/r/MalinrRuwan/xray
 pip: https://pypi.org/project/v2ray-util/  
 python3: https://github.com/MalinrRuwan/python3-install  
 acme: https://github.com/Neilpang/acme.sh
+
+## Special Credits
+> (Jrohy) (https://github.com/Jrohy)
