@@ -111,4 +111,4 @@ python3: https://github.com/MalinrRuwan/python3-install
 acme: https://github.com/Neilpang/acme.sh
 
 ## Special Credits
-> (Jrohy) (https://github.com/Jrohy)
+> [Jrohy](https://github.com/Jrohy)
