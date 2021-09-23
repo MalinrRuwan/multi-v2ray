@@ -162,7 +162,7 @@ installDependent(){
 updateProject() {
     [[ ! $(type pip 2>/dev/null) ]] && colorEcho $RED "pip no install!" && exit 1
 
-    pip install -U git+https://github.com/MalinrRuwan/multi-v2ray#egg=v2ray_util
+    pip install setup.py #install python package
 
     if [[ -e $UTIL_PATH ]];then
         [[ -z $(cat $UTIL_PATH|grep lang) ]] && echo "lang=en" >> $UTIL_PATH
